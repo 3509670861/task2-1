@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>无标题文档</title>
+<script src="../bs/js/jquery.min.js"></script>
+<link rel="stylesheet" href="view.css">
+
+</head>
+
+<body>
+<table>
+	<tr>
+		<td>
+			<span id="s1">&lsaquo;</span>
+		</td>
+		<td>
+			查看身份
+		</td>
+		<td>
+			<a href="start.html" id="s2">&times;</a>
+		</td>
+	</tr>
+</table>
+
+<div class="content">
+	<span id="xh">1</span>
+	<div class="div2">
+		<img src="king.png" alt="" id="img1">
+		<img src="kill.png" alt="" id="img2">
+		<p id="p1">2354</p>
+	</div>
+	<div id="bottom">查看1号身份</div>
+</div>
+</body>
+<script>
+
+	//点击左上角图标返回玩家配比界面
+	s1obj=document.getElementById('s1');
+	s2obj=document.getElementById('s2');
+	bobj=document.getElementById('bottom');
+	img1obj=document.getElementById('img1');
+	img2obj=document.getElementById('img2');
+	pobj=document.getElementById('p1');
+	xobj=document.getElementById('xh');
+	
+	s1obj.onclick=function(){
+		window.location.href='players.html';
+	}
+	s2obj.onclick=function(){
+		r=confirm('结束本轮游戏吗?');
+		
+		if(!r){
+			return false;
+		}
+	}	
+	
+	i=1;
+	
+	bobj.onclick=function(){
+		if(i==8){
+			//y为输入玩家数量,这里假设y=8
+			
+			img1obj.style.display='none';
+			img2obj.style.display='inline';
+			pobj.style.display='block';
+			//还有杀手和平民的身份显示
+			this.innerHTML='法官查看';
+			xobj.innerHTML=i;
+			i++;
+		}else if(this.innerHTML=='查看'+i+'号身份'){
+			img1obj.style.display='none';
+			img2obj.style.display='inline';
+			pobj.style.display='block';
+//			$('.p1').html(i-1);
+			//还有杀手和平民的身份显示
+			this.innerHTML='隐藏并传递给'+(i+1)+'号';
+			
+//			i++;
+		}else if(i==9){//9为y+1
+//			alert('rfdh');
+			window.location.href='judge.html';
+		}else if(this.innerHTML='隐藏并传递给'+(i+1)+'号'){
+			img1obj.style.display='inline';
+			img2obj.style.display='none';
+			pobj.style.display='none';
+			this.innerHTML='查看'+(i+1)+'号身份';
+			xobj.innerHTML=i+1;
+			i++;
+		}
+	}
+	
+</script>
+</html>

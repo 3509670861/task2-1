@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>无标题文档</title>
+<link rel="stylesheet" href="players.css">
+
+</head>
+
+<body>
+	<div class="zzo">
+		<table class="t1">
+			<tr class="t1-1">
+				<td id="s1">&lt;</td>
+				<td>参数设置</td>
+				<td></td>
+			</tr>
+		</table>
+	
+		<div class="container">
+			<table class="t2">
+				<tr>
+					<td rowspan="2" class="t2-td1">玩家配比</td>
+					<td class="t2-td2">
+						<ul>
+							<li>杀手<input type="text" disabled value="2" id="killer">人</li>
+							<li>平民<input type="text" disabled value="6" id="peo">人</li>
+						</ul>
+						
+					</td>
+				</tr>
+				<tr></tr>				
+			</table>			
+		</div>
+		<div class="d1">
+			<span>玩家人数<input onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" maxlength="2" value="8" id="num">人</span>
+			<p>支持4-18人同时游戏</p>
+			<!--滑动条-->
+			<table class="d1-table">
+				<tr class="d1-tr">
+					<td class="d1-td1">
+						<button id="sub">-</button>
+					</td>
+					<td class="d1-td2">
+						<input type="range" id="scroll" max="18" min="4" step="1" value="8">
+					</td>
+					<td class="d1-td3">
+						<button id="add">+</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<button id="btn">去发牌</button>
+	</div>
+</body>
+<script src="players.js"></script>
+
+</html>
